@@ -8,6 +8,8 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const cookie = require('cookie-parser');
 const passport = require('./config/passport');
+//Importando las variables.env
+require('dotenv').config({path: 'variables.env'});
 
 //Importar el modelo 
 require('./models/Proyectos');
@@ -70,7 +72,11 @@ app.use((req, res, next) => {
 app.use('/', routes());
 
 
-//Configurando el puerto
+//Servidor y puerto
+const host = process.env.HOST || '0.0.0.0';
+const port = process.env.PORT || 3000;
 
-app.listen(3000);
+app.listen(port, host, () => {
+    console.log('El servidor está funcionando');
+});
 
