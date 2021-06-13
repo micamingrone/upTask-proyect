@@ -66,6 +66,7 @@ module.exports = function()  {
     //Crear nueva cuenta
     router.get('/crear-cuenta', controladorUsuarios.formCrearCuenta);
     router.post('/crear-cuenta', controladorUsuarios.crearCuenta);
+    router.get('/confirmar/:correo' , controladorUsuarios.confirmarCuenta)
 
     //Iniciar sesión en UpTask
     router.get('/iniciar-sesion', controladorUsuarios.formIniciarSesion);
